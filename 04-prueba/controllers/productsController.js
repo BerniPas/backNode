@@ -1,6 +1,9 @@
 
 const fs = require('node:fs');
 
+//creamos un array de productos
+let productos = [];
+
 
 const mostrarFormulario = (req, res) => {
     res.render('registroProductos', {
@@ -24,9 +27,6 @@ const cargarFormulario = (req, res) => {
     //imprimimos el producto
     console.log(producto);
 
-    //creamos un array de productos
-    let productos = [];
-
     //cargamos el producto en el array
     productos.push(producto);
 
@@ -35,7 +35,15 @@ const cargarFormulario = (req, res) => {
 
 
     //guardamos el producto en un archivo .txt asincrónico
-    fs.writeFile('archivos/productosAsync.txt', JSON.stringify(productos), (err) => {
+    //por default el dato se sobreescribe en el archivo
+/*     fs.writeFile('archivos/productosAsync.txt', JSON.stringify(productos), (err) => {
+        if (err) {
+            console.log(err);
+            fs.writeFileSync('archivos/error.txt', err);
+        }
+    }); */
+
+    fs.appendFile('archivos/productosAsync.txt', JSON.stringify(productos), (err) => {
         if (err) {
             console.log(err);
             fs.writeFileSync('archivos/error.txt', err);

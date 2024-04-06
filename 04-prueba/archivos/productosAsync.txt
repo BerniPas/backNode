@@ -1,1 +1,47 @@
-[{"nombreProducto":"pepas","precioProducto":"1200","imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21","stockProducto":"2000"}]
+[
+    {
+        "nombreProducto":"Galletas",
+        "precioProducto":"600",
+        "imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21",
+        "stockProducto":"500"
+    }
+]
+
+[
+    {
+        "nombreProducto":"Galletas",
+        "precioProducto":"800",
+        "imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21",
+        "stockProducto":"1200"
+    }
+]
+[
+    {
+        "nombreProducto":"Galletas",
+        "precioProducto":"1500",
+        "imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21",
+        "stockProducto":"300"
+    }
+]
+[
+    {
+        "nombreProducto":"Galletas",
+        "precioProducto":"1500",
+        "imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21",
+        "stockProducto":"300"}
+]
+[
+    {
+        "nombreProducto":"Galletas",
+        "precioProducto":"1500",
+        "imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21",
+        "stockProducto":"300"
+    },
+    {
+        "nombreProducto":"Gaseoass",
+        "precioProducto":"800",
+        "imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21",
+        "stockProducto":"500"
+    }
+]
+[{"nombreProducto":"Galletas","precioProducto":"1500","imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21","stockProducto":"300"},{"nombreProducto":"Gaseoass","precioProducto":"800","imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21","stockProducto":"500"},{"nombreProducto":"Pepas","precioProducto":"800","imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21","stockProducto":"500"}]
