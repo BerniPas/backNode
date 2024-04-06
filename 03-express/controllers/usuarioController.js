@@ -97,7 +97,6 @@ const login = (req, res) => {
     <input type="text" id="nombre" name="nombre">
     </form>`)
 
-
 }
 
 

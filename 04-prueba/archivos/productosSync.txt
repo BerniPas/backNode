@@ -1,0 +1,1 @@
+[{"nombreProducto":"Pastas","precioProducto":"3000","imagenProducto":"https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=xl&ratio=r40_21","stockProducto":"2000"}]
