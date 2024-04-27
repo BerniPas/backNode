@@ -1,0 +1,29 @@
+<div class="m-5">
+
+    <h1 class="m-4 text-center">
+        Listado de Productos en Cards
+    </h1>
+
+    {{message}}
+
+    <div class="d-flex flex-row m-4 justify-content-center">
+
+        {{#each productos}} 
+
+            <div class="card m-3" style="width: 50rem;">
+                <img src={{imagenProducto}} class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{nombreProducto}}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. {{_id}}
+                    </p>
+                    <a href="/productos/descripcion/{{ _id }}" class="btn btn-success">Ver Producto</a>
+                    <a href="/productos/delete/{{ _id }}" class="btn btn-danger">Delete Producto</a>
+                    <a href="/productos/update/{{ _id }}" class="btn btn-warning">Update Producto</a>
+                </div>
+            </div>
+
+        {{/each}}
+
+    </div>
+
+</div>

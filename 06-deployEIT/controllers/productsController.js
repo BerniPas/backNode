@@ -1,9 +1,9 @@
 
-const fs = require('node:fs');
+import fs from 'node:fs';
 
 
-const MongoClient = require("mongodb").MongoClient;
-const dotenv = require("dotenv");
+import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
 dotenv.config();
 const MONGO_LOCAL = process.env.MONGO_LOCAL;
 const MONGO_ATLAS = process.env.MONGO_ATLAS;
@@ -41,7 +41,7 @@ const cargarFormulario = async (req, res) => {
     productos.push(producto);
 
     //guardamos el producto en un archivo .txt sincrónico
-    fs.writeFileSync('archivos/productosSync.txt', JSON.stringify(productos));
+    //fs.writeFileSync('archivos/productosSync.txt', JSON.stringify(productos));
 
     await client.connect();
 
@@ -79,7 +79,7 @@ const cargarFormulario = async (req, res) => {
     });
 }
 
-module.exports = {
-    mostrarFormulario, 
-    cargarFormulario
-}
+export { mostrarFormulario, cargarFormulario };
+
+//sólo podemos realizar una exportación por default
+//export default cargarFormulario;
