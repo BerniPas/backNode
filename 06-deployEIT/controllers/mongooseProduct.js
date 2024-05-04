@@ -1,6 +1,8 @@
 import Producto from '../models/productModels.js';
 //const Productos = new Producto();
 
+import { request, response } from 'express';
+
 /* GET users listing. */
 const mostrarFormulario = (req, res) => {
     res.render('mongooseProduct', {
@@ -109,6 +111,13 @@ const mostrarDescripcionProducto = async (req, res) =>{
     try {
 
         const productoBuscado = await Producto.findById({_id: id});
+
+        //si no encontramos el producto
+        if(!productoBuscado){
+            res.render('descripcionProducto',{
+                menssage: 'Sin stock del Producto'
+            });
+        }
         
         res.render('descripcionProducto',{
             productoBuscado: productoBuscado
@@ -124,9 +133,108 @@ const mostrarDescripcionProducto = async (req, res) =>{
 
     }
 
+}
 
+const eliminarProducto = async (req = request, res = response) =>{
+
+    const id = req.params._id;
+    
+    console.log(id);
+
+    try {
+
+        //buscamos el producto por id y lo eliminamos
+        const productoEliminadoporId = await Producto.findByIdAndDelete({_id: id});
+
+        console.log('Producto eliminado', productoEliminadoporId);
+
+        //rebuscamos todos los productos
+        const listaProductos = await Producto.find();
+
+        res.render('listarCards', {
+            productos: listaProductos
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        return res.render('error',{
+            message: 'Nuestro ingenieros estan trabajando en el problema, vuelva mas tarde'
+        });
+
+    }
+}
+
+const formularioActualizar = async (req = request, res = response) =>{
+        
+        const id = req.params._id;
+    
+        console.log(id);
+    
+        try {
+    
+            //buscamos el producto por id y lo eliminamos
+            const productoParaActualizar = await Producto.findById({_id: id}) 
+            
+            return res.render('productoParaActualizar',{
+                title: 'Producto para Actualizar',
+                productoParaActualizar: productoParaActualizar
+            });
+    
+        }
+        catch (error) {
+    
+            console.log(error);
+    
+            return res.render('error',{
+                message: 'Nuestro ingenieros estan trabajando en el problema, vuelva mas tarde'
+            });
+    
+        }
+    
 
 }
+
+const actualizarProducto = async (req = request, res = response) =>{
+        
+        const id = req.params._id;
+    
+        console.log(id);
+    
+        try {
+            const data = {
+                nombreProducto: req.body.nombre,
+                precioProducto: req.body.precio,
+                imagenProducto: req.body.imagen,
+                stockProducto: req.body.stock
+            }
+    
+            //buscamos el producto por id y lo eliminamos
+            const productoParaActualizar = await Producto.findByIdAndUpdate({_id: id}, data);
+
+            console.log(productoParaActualizar);
+
+            const listaProductos = await Producto.find();
+            
+            res.render('listarCards', {
+                productos: listaProductos
+            });
+
+        }
+        catch (error) {
+    
+            console.log(error);
+    
+            return res.render('error',{
+                message: 'Nuestro ingenieros estan trabajando en el problema, vuelva mas tarde'
+            });
+    
+        }
+
+}
+
+
 
 
 export {
@@ -134,5 +242,8 @@ export {
     cargarFormulario,
     listarProductosTabla,
     listarProductosCards,
-    mostrarDescripcionProducto
+    mostrarDescripcionProducto,
+    eliminarProducto,
+    actualizarProducto,
+    formularioActualizar
 };

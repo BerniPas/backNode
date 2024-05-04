@@ -17,8 +17,12 @@
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. {{_id}}
                     </p>
                     <a href="/productos/descripcion/{{ _id }}" class="btn btn-success">Ver Producto</a>
-                    <a href="/productos/delete/{{ _id }}" class="btn btn-danger">Delete Producto</a>
-                    <a href="/productos/update/{{ _id }}" class="btn btn-warning">Update Producto</a>
+                    <form action="/productos/delete/{{ _id }}" method="post">
+                        <input type="submit" class="btn btn-danger" value="Delete Producto">
+                    </form>
+                    <form action="/productos/update/{{ _id }}" method="get">
+                        <input type="submit" class="btn btn-warning" value="Update Producto">
+                    </form>
                 </div>
             </div>
 

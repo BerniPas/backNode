@@ -1,0 +1,32 @@
+<div class="container m-5 text-bg-warning text-center">
+    <h1 class="m-5">
+        {{ title }}
+    </h1>
+</div>
+
+    <div class="container text-center m-5">
+        <form action="/productos/update/{{productoParaActualizar._id}}" method="post">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{productoParaActualizar.nombreProducto}}">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" name="precio" value="{{productoParaActualizar.precioProducto}}">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Imagen</label>
+                <input type="text" class="form-control" id="imagen" name="imagen" value="{{productoParaActualizar.imagenProducto}}">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" name="stock" value="{{productoParaActualizar.stockProducto}}">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-warning w-50">Enviar Datos</button>
+            </div>
+            <div class="mb-3">
+                <button type="reset" class="btn btn-danger w-50">Borrar Datos</button>
+            </div>
+        </form>
+    </div>

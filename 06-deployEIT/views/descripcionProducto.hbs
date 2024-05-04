@@ -1,0 +1,25 @@
+<div class="m-5">
+
+    <h1 class="m-4 text-center">
+        Descripción del Producto
+    </h1>
+
+    <div class="d-flex flex-row m-4 justify-content-center">
+
+        {{ message }}
+
+            <div class="card m-3" style="width: 50rem;">
+                <img src={{productoBuscado.imagenProducto}} class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{productoBuscado.nombreProducto}}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. {{productoBuscado._id}}
+                    </p>
+                    <h2>Precio Unitario: {{ productoBuscado.precioProducto }}</h2>
+                    <a href="/productos/listcards" class="btn btn-success">Volver al Listado</a>
+                    <a href="" target="_blank" class="btn btn-danger">Comprar Producto</a>
+                </div>
+            </div>
+
+    </div>
+
+</div>

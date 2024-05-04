@@ -6,7 +6,10 @@ import {
     cargarFormulario,
     listarProductosTabla,
     listarProductosCards,
-    mostrarDescripcionProducto
+    mostrarDescripcionProducto, 
+    eliminarProducto,
+    actualizarProducto,
+    formularioActualizar
 } from '../controllers/mongooseProduct.js';
 
 /* 
@@ -26,7 +29,16 @@ router.get('/list', listarProductosTabla);
 router.get('/listcards', listarProductosCards);
 
 //obtener un producto por descripción
-router.post('/descripcion/:_id', mostrarDescripcionProducto);
+router.post('/delete/:_id', eliminarProducto);
+
+router.get('/update/:_id', formularioActualizar);
+
+//update del producto
+router.post('/update/:_id', actualizarProducto);
+
+//obtener un producto por descripción
+router.get('/descripcion/:_id', mostrarDescripcionProducto);
+
 
 export default router;
 
