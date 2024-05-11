@@ -1,6 +1,6 @@
 
-import Producto from '../models/productModels';
-import Usuario from '../models/productModels';
+import Producto from './productModels.js';
+import Usuario from './usersModels.js';
 
 export{
     Producto,

@@ -1,0 +1,29 @@
+
+<div class="container m-5 text-bg-success text-center">
+    <h1 class="m-5">
+        Login Usuarios
+    </h1>
+
+    <h1 class="m-5 text-bg-danger">
+        {{ mensaje }}
+    </h1>
+</div>
+
+    <div class="container text-center m-5">
+        <form action="/users/login" method="post">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success w-50">Login</button>
+            </div>
+            <div class="mb-3">
+                <button type="reset" class="btn btn-danger w-50">Borrar Datos</button>
+            </div>
+        </form>
+    </div>
