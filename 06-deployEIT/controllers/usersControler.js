@@ -3,6 +3,10 @@ import { validationResult } from 'express-validator';
 import { Usuario } from '../models/index.js';
 import bcrypt from 'bcrypt';
 import enviarMail from '../servicios/mailResponse.js';
+import { 
+    generarJWT,
+    verificarJWT
+} from '../servicios/jwt.js';
 
 const formularioRegistro = (req = request, res = response) => {
     res.render('registroUser')
@@ -107,6 +111,8 @@ const loginUsuario = async (req, res) => {
 
     //desestructuramos los datos del body
     const { email, password } = req.body;
+
+
     
     //buscamos en la database si el user ya existe
     //const existeUser = await Usuario.findOne({emailUser: email})
@@ -128,16 +134,33 @@ const loginUsuario = async (req, res) => {
     const passwordCorrecto = await bcrypt.compareSync(password, existeUser[0].password);
 
         if(!passwordCorrecto){
-            res.json({
+            return res.json({
                 mensaje: 'Usuario o Password incorrectos'
             });
         }
 
-        if(passwordCorrecto) {
-            res.json({
-                mensaje: 'Login Correcto'
-            });
+
+            //generar un user
+        const user = {
+            nombre: existeUser[0].nombreUser,
+            email: existeUser[0].emailUser,
+            password: existeUser[0].password
         }
+
+        
+
+        //asignar el JWT al User
+        const token = await generarJWT(user);
+
+        console.log(token);
+
+        req.header = ('x-token', token)
+
+    
+        res.render('admin',{
+            token
+        });
+        
 
     } catch (error) {
         console.log(error);
