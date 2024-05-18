@@ -2,6 +2,7 @@ import { request, response } from 'express';
 import { validationResult } from 'express-validator';
 import { Usuario } from '../models/index.js';
 import bcrypt from 'bcrypt';
+import enviarMail from '../servicios/mailResponse.js';
 
 const formularioRegistro = (req = request, res = response) => {
     res.render('registroUser')
@@ -67,14 +68,19 @@ const registrarUsuario = async (req, res) => {
 
         //enviar un mail de bienvenida
         //await enviarmail(persona.emailUser);
-
+/* 
         return res.status('200').json({
                 nombre: nombre,
                 email: email,
                 password: password,
                 provincia: provincia
             }
-        );
+        ); */
+
+        //enviamos un mail de Bienvenida
+        await enviarMail(email, nombre);
+
+        res.render('loginUser')
 
     } catch (error) {
         console.log(error);
@@ -103,6 +109,7 @@ const loginUsuario = async (req, res) => {
     const { email, password } = req.body;
     
     //buscamos en la database si el user ya existe
+    //const existeUser = await Usuario.findOne({emailUser: email})
     const existeUser = await Usuario.find({emailUser: email})
     
     console.log(existeUser);
@@ -117,7 +124,8 @@ const loginUsuario = async (req, res) => {
     try { 
 
     //comparamos la password encriptada con la password enviada
-    const passwordCorrecto = await bcrypt.compare(password, existeUser.password);
+    //const passwordCorrecto = await bcrypt.compareSync(password, existeUser.password);
+    const passwordCorrecto = await bcrypt.compareSync(password, existeUser[0].password);
 
         if(!passwordCorrecto){
             res.json({
