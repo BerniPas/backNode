@@ -9,7 +9,7 @@ const MONGO_ATLAS_MONGOOSE = process.env.MONGO_ATLAS_MONGOOSE;
 console.log(MONGO_LOCAL_MONGOOSE);
 console.log(MONGO_ATLAS_MONGOOSE);
 
-const conectarMongoose = mongoose.connect(MONGO_LOCAL_MONGOOSE).then(
+const conectarMongoose = mongoose.connect(MONGO_ATLAS_MONGOOSE).then(
     () => {
         console.log('=======================================');
         console.log(`Conexion realizada correctamente a: ${MONGO_ATLAS_MONGOOSE}`);
